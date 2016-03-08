@@ -16,10 +16,12 @@
 			linux,reserve-contiguous-region;
 			linux,reserve-region;
 			linux,remove-completely;
-			reg = <0 0x0ff00000 0 0x100000>;
+                         /* Hardboot: reserve 1MB of space
+			 * before ramoops address of 0xaf000000
+			 */
+			reg = <0x0 0xaef00000 0x0 0x180000>;
 			label = "ramoops_mem";
-		};
-
+                };
 		dfps_data_mem: dfps_data_mem@0 {
 			status = "disabled";
 		};
